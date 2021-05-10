@@ -11,7 +11,7 @@ def loop(lista):
     print('O estado atual das cartas é: ')
     for i in lista:
         cartas += '{}. {}\n'.format(lista.index(i)+1, i)
-        print(cartas)
+    print(cartas)
     
 def teste(x):
     try:
@@ -39,7 +39,7 @@ def prog(cartas):
                 loop(cartas)
                 prog(cartas)
             elif len(movpossiveis) == 2:  
-                z = int(input('Sobre qual carta você quer empilhar o {} ? \n 1. {}\n 2. {}\nDigite o número da sua escolha:'.format(cartas[y], cartas[y-1],cartas[y-3])))
+                z = int(input('Digite em qual carta você quer empilhar o {}. \n 1. {}\n 2. {}\nDigite o número da sua escolha:'.format(cartas[y], cartas[y-1],cartas[y-3])))
                 if z == 1:
                     cartas = emp(cartas, y, y-1)
                     loop(cartas)
@@ -49,7 +49,7 @@ def prog(cartas):
                     loop(cartas)
                     prog(cartas)
             elif len(movpossiveis) == 0:
-                print('A carta {} não pode ser movida'.format(cartas[y]))
+                print('Não tem movimentos possíveis para {}'.format(cartas[y]))
                 prog(cartas)
         else:
             print('Posição inválida')
@@ -58,8 +58,8 @@ def prog(cartas):
         if len(cartas) == 1:
             print('Parabéns! Você venceu!')
         else:
-            print('Não há mais nenhum movimento possível. Você perdeu!')
-    nov = input('Deseja jogar novamente? (sim/nao)')
+            print('Não há mais nenhum movimento possível. Você perdeu :(')
+    nov = input('Deseja jogar novamente? (sim/não)')
     if nov == 'sim':
         start()
 
